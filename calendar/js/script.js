@@ -48,18 +48,3 @@ vis.selectAll("path.month")
           + "Z";
     });
 
-d3.csv("dji.csv", function(csv) {
-  var data = d3.nest()
-      .key(function(d) { return d.Date; })
-      .rollup(function(d) { return (d[0].Close - d[0].Open) / d[0].Open; })
-      .map(csv);
-
-  var color = d3.scale.quantize()
-      .domain([-.05, .05])
-      .range(d3.range(9));
-
-  vis.selectAll("rect.day")
-      .attr("class", function(d) { return "day q" + color(data[d.Date]) + "-9"; })
-    .append("svg:title")
-      .text(function(d) { return d.Date + ": " + (data[d.Date] * 100).toFixed(1) + "%"; });
-});

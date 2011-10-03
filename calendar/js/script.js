@@ -28,7 +28,7 @@ vis.selectAll("rect.day")
     .attr("width", z)
     .attr("class", "day")
     .attr("xlink:href", function(d) {
-      return "file:///Users/alx/lifestream/script/calendar/pixel-days-dark/day-" + d.Date + ".jpg";
+      return "pixel-days-dark/day-" + d.Date + ".jpg";
     })
     .attr("height", 24);
 ;

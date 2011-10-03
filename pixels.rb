@@ -2,12 +2,14 @@
 require "date"
 require "fileutils"
 
-dir = "/Users/alx/lifestream/archives/"
+FileUtils.mv "~/lifestream/*.jpeg", "~/lifestream/archives/"
+
+dir = "~/lifestream/archives/"
 blank_color = "dark" # or "white"
 
 Dir.glob(File.join(File.expand_path(dir), "*.jpeg")).each do |f|
 
-  puts "file: #{f}"
+  # puts "file: #{f}"
 
   color = `convert #{f} -resize 1x1\! txt:- | tail -1 | cut -f2 -d'#' | cut -f1 -d' '`
 
@@ -26,12 +28,4 @@ Dir.glob(File.join(File.expand_path(dir), "*.jpeg")).each do |f|
   pixel_y = date.hour
 
   `convert #{output} -fill '##{color}' -draw 'color #{pixel_x},#{pixel_y} point' #{output}`
-
-  unless dir =~ /archives/
-    FileUtils.mv f, File.join("..", "archives")
-  end
 end
-
-#p "<html><body><table>"
-#Dir.glob("*.jpeg").each{|file| p "<tr style='height:10px;width:10px;'><td style='background-color:#{`convert #{file} -resize 1x1\! txt:- | tail -1 | cut -f2 -d'#' | cut -f1 -d' '`}'></td></tr>"}
-#p "</table></body></html>"

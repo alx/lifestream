@@ -5,6 +5,7 @@ require "fileutils"
 
 dir = "~/lifestream/"
 blank_color = "dark" # or "white"
+archive = true # or not
 
 Dir.glob(File.join(File.expand_path(dir), "*.jpeg")).each do |f|
 
@@ -27,6 +28,6 @@ Dir.glob(File.join(File.expand_path(dir), "*.jpeg")).each do |f|
   pixel_y = date.hour
 
   `convert #{output} -fill '##{color}' -draw 'color #{pixel_x},#{pixel_y} point' #{output}`
-end
 
-FileUtils.mv "~/lifestream/*.jpeg", "~/lifestream/archives/"
+  FileUtils.mv(f, File.expand_path("~/lifestream/archives/")) if archive
+end

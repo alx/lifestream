@@ -15,13 +15,7 @@
 
 ## Calendar
 
-Run once:
+Run:
 
-    mkdir calendar/pixel-days-dark
-    mkdir calendar/pixel-days-white
-    ruby complete_dates.rb
-
-Run to update calendar:
-
-    ruby pixels.rb
+    ruby calendar.rb
     open calendar/index.html

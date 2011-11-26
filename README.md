@@ -41,4 +41,4 @@ Run to create montage files:
 
 Create a movie from montage files with ffmpeg:
 
-    mpeg -r 10 -b 1800 -i day_to_day/montage_%03d.jpg test1800.mp4
+    ffmpeg -r 10 -b 1800 -i day_to_day/montage_%03d.jpg test1800.mp4

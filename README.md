@@ -22,10 +22,23 @@ Run:
 
 ## Day to Day
 
+Configure the script:
+
+```
+# Size of the mosaic to be generated in montage
+tile_size = 20
+
+# Source of webcam images
+lifestream_archive = "/Users/alx/lifestream/archives/"
+
+# Geometry of resized webcam images
+geometry = "64x48"
+```
+
 Run to create montage files:
 
   ruby day_to_day.rb
 
 Create a movie from montage files with ffmpeg:
 
-  mpeg -r 10 -b 1800 -i montage_%03d.jpg test1800.mp4
+  mpeg -r 10 -b 1800 -i day_to_day/montage_%03d.jpg test1800.mp4

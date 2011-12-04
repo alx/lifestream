@@ -10,6 +10,7 @@
     cd lifestream
     brew install imagesnap
     cp lifestream.sh /usr/local/bin/
+    cp com.alexgirard.lifestream.plist ~/Library/LaunchAgents/
     launchctl load com.alexgirard.lifestream.plist
     mkdir -p ~/lifestream/archives/
 
